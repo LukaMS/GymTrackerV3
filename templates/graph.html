@@ -1,0 +1,127 @@
+{% extends 'newBase.html' %}
+{% block nav_profile %}active{% endblock %}
+{% block content %}
+{% if not graph %}
+<div class="container-lg mt-5">
+  <div class="row justify-content-center">
+    <div class="col-sm-8 border px-0">
+      <nav class="navbar navbar-expand-md"  style="background-color: #c0c0c0;">
+        <div class="container ">            
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarProfileContent" aria-controls="navbarProfileContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-center" id="navbarProfileContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 nav-underline">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="{{url_for('profiles.profile')}}">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('profiles.workouts')}}">Workouts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{{url_for('profiles.graphs')}}">Graphs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('profiles.stats')}}">Stats</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('profiles.goals')}}">Goals</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="row mx-0 d-flex justify-content-center">
+        <div class="col my-5 d-flex justify-content-center" >
+          <form class="row row-cols-lg-auto g-3 align-items-center" action="/makeGraph" method="POST">
+            <div class="col-12">
+              <label for="exerciseName">Exercise: </label>
+              <select class="form-select" id="exerciseName" name="exercise">
+                <option selected>Select Exercise...</option>
+                {% for exercise in exercises %}
+                <option value="{{exercise}}">{{exercise}}</option>
+                {% endfor %}
+              </select>
+            </div>
+          
+            <div class="col-12">
+              <label for="GraphType">Graph Type: </label>
+              <select class="form-select" id="GraphType" name="GraphType">
+                <option selected>Choose...</option>
+                <option value="Weight">Weight</option>
+                <option value="Reps">Reps</option>
+                <option value="Volume">Volume</option>
+              </select>
+            </div>
+          
+            <div class="col-12">
+              <label for="dateRange">Date Range: </label>
+              <select class="form-select" id="dateRange" name="dateRange">
+                <option selected>Choose...</option>
+                <option value="0">All Time</option>
+                <option value="1">One Month</option>
+                <option value="2">Two Months</option>
+                <option value="4">Four Months</option>
+              </select>
+            </div>
+          
+            <div class="col-12">
+              <button type="submit" class="btn btn-dark mt-4">Generate Graph</button>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% if graph %}
+<div class="container-lg mt-5">
+  <div class="row justify-content-center">
+    <div class="col-sm-8 border px-0">
+      <nav class="navbar navbar-expand-md"  style="background-color: #c0c0c0;">
+        <div class="container ">            
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarProfileContent" aria-controls="navbarProfileContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-center" id="navbarProfileContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 nav-underline">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="{{url_for('profiles.profile')}}">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('profiles.workouts')}}">Workouts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{{url_for('profiles.graphs')}}">Graphs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('profiles.stats')}}">Stats</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('profiles.goals')}}">Goals</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="row mx-0 d-flex justify-content-center">
+        <div class="col my-3 d-flex justify-content-center" id="graphingGraph" >
+          
+        </div>
+        <script type="text/javascript">
+          var graph = {{graph_json | safe}}
+      
+          Plotly.plot('graphingGraph', graph, {})
+        </script>
+      </div>
+      <div class="row mx-0 d-flex justify-content-center">
+        <div class="col my-3 d-flex justify-content-center" id="graphingGraph" >
+          <form action="/graphs" method="GET">
+            <button type="submit" class="btn btn-dark mt-3">Generate New Graph</button>
+          </form>
+        </div>
+      </div>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

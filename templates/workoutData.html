@@ -1,0 +1,98 @@
+{% extends 'newBase.html' %}
+{% block nav_profile %}active{% endblock %}
+{% block content %}
+<div class="container-lg mt-5">
+  <div class="row justify-content-center">
+    <div class="col-sm-8 border px-0">
+      <nav class="navbar navbar-expand-md"  style="background-color: #c0c0c0;">
+        <div class="container ">            
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarProfileContent" aria-controls="navbarProfileContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-center" id="navbarProfileContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 nav-underline">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="{{url_for('profiles.profile')}}">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{{url_for('profiles.workouts')}}">Workouts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('profiles.graphs')}}">Graphs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('profiles.stats')}}">Stats</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('profiles.goals')}}">Goals</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      {%for i in range(0,workoutData[0])%}
+        <div class="row mx-0 d-flex justify-content-center">
+          <div class="col-4 my-3 mx-3">
+            <h3 style="height: 75px;">{{workoutData[i*2+2][0]}}</h3>
+            <div class="row border">
+              <div class="col-4">
+                <h5 class="text-start">Set</h5>
+                {%for j in range(0,workoutData[i*2+2][1])%}
+                <p class="mx-2">{{workoutData[i*2+2][j+2][0]}}</p>
+                {%endfor%}
+              </div>
+              <div class="col-3">
+                <h5>Reps</h5>
+                {%for j in range(0,workoutData[i*2+2][1])%}
+                <p class="mx-2">{{workoutData[i*2+2][j+2][2]}}</p>
+                {%endfor%}
+              </div>
+              <div class="col-5">
+                <h5>Weight(lbs)</h5>
+                {%for j in range(0,workoutData[i*2+2][1])%}
+                <p class="mx-2">{{workoutData[i*2+2][j+2][1]}}</p>
+                {%endfor%}
+              </div>
+            </div>
+          </div>
+          {%if not i*2+2 > workoutData[1]%}
+          <div class="col-4 my-3 mx-3">
+            <h3 style="height: 75px;">{{workoutData[i*2+3][0]}}</h3>
+            <div class="row border">
+              <div class="col-4">
+                <h5 class="text-start">Set</h5>
+                {%for j in range(0,workoutData[i*2+3][1])%}
+                <p class="mx-2">{{workoutData[i*2+3][j+2][0]}}</p>
+                {%endfor%}
+              </div>
+              <div class="col-3">
+                <h5>Reps</h5>
+                {%for j in range(0,workoutData[i*2+3][1])%}
+                <p class="mx-2">{{workoutData[i*2+3][j+2][2]}}</p>
+                {%endfor%}
+              </div>
+              <div class="col-5">
+                <h5>Weight(lbs)</h5>
+                {%for j in range(0,workoutData[i*2+3][1])%}
+                <p class="mx-2">{{workoutData[i*2+3][j+2][1]}}</p>
+                {%endfor%}
+              </div>
+            </div>
+          </div>
+          {%endif%}
+        </div>
+      {%endfor%}
+      <div class="row d-flex justify-content-center mt-2 mx-0 border-top">
+        <div class="col-4 text-center my-3">
+          <p>Date: {{workoutInfo[0]}}</p>
+          <p>Duration: {{workoutInfo[1]}}</p>
+        </div>
+        <div class="col-4 text-center my-3">
+          <p># of Exercises: {{workoutInfo[2]}}</p>
+          <p>Total Volume: {{workoutInfo[3]}}lbs</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

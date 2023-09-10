@@ -1,0 +1,211 @@
+{% extends 'newBase.html' %}
+{% block nav_profile %}active{% endblock %}
+{% block content %}
+<div class="container-lg mt-5">
+  <div class="row justify-content-center">
+    <div class="col-sm-8 border px-0">
+      <nav class="navbar navbar-expand-md"  style="background-color: #c0c0c0;">
+        <div class="container ">            
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarProfileContent" aria-controls="navbarProfileContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-center" id="navbarProfileContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 nav-underline">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="{{url_for('profiles.profile')}}">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('profiles.workouts')}}">Workouts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('profiles.graphs')}}">Graphs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('profiles.stats')}}">Stats</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{{url_for('profiles.goals')}}">Goals</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="row mx-0 d-flex justify-content-center border-bottom">
+        <div class="col-4 d-flex justify-content-end mb-3">
+          <div class="col-6">
+          <div class="vstack gap-3 mt-3">
+              <h4 class="text-center">Squat</h4>
+              <div class="collapse multi-collapseSquat" id="squatAddGoal">
+                <form action="/uploadGoal" method="POST">
+                  <div class="form-group row mx-0">
+                    <input type="text" class="form-control mt-0" id="goal" name="setGoal"  placeholder="Goal..">
+                    <input type="hidden" class="form-control mt-0" id="goal" name="goalType"  value="squat">
+                    <button type="submit" class="btn btn-dark btn-sm my-3">Add</button>
+                  </div>
+                </form>
+              </div>
+              {%if goalData[0][0] !='Squat' %}
+              <button class="btn btn-dark btn-sm mx-3" data-bs-toggle="collapse" data-bs-target="#squatAddGoal" style="width: 75%;">+ Goal</button>
+              {%endif%}
+              {% if goalData[0][0] == 'Squat' %}
+              <div class="collapse show multi-collapseSquat">
+                <h5 class="text-center mt-3">{{goalData[0][1]}} lbs</h5>
+              </div>
+              
+              <button class="btn btn-dark btn-sm mt-3 mx-3" style="width: 75%;" data-bs-toggle="collapse" data-bs-target=".multi-collapseSquat">Edit Goal</button>
+              {%endif%}
+            </div>
+          </div>
+        </div>
+        <div class="col-4 d-flex justify-content-center mb-3">
+          <div class="col-6 d-flex justify-content-center">
+          <div class="vstack gap-3 mt-3">
+              <h4 class="text-center">Bench</h4>
+              <div class="collapse multi-collapseBench" id="benchAddGoal">
+                <form action="/uploadGoal" method="POST">
+                  <div class="form-group row mx-0">
+                    <input type="text" class="form-control mt-0" id="goal" name="setGoal"  placeholder="Goal..">
+                    <input type="hidden" class="form-control mt-0" id="goal" name="goalType"  value="bench">
+                    <button type="submit" class="btn btn-dark btn-sm my-3">Add</button>
+                  </div>
+                </form>
+              </div>
+              {%if goalData[1][0] !='Bench' %}
+              <button class="btn btn-dark btn-sm mx-3" data-bs-toggle="collapse" data-bs-target="#benchAddGoal" style="width: 75%;">+ Goal</button>
+              {%endif%}
+              {% if goalData[1][0] == 'Bench' %}
+              <div class="collapse show multi-collapseBench">
+                <h5 class="text-center mt-3">{{goalData[1][1]}} lbs</h5>
+              </div>
+              <button class="btn btn-dark btn-sm mt-3 mx-3" style="width: 75%;" data-bs-toggle="collapse" data-bs-target=".multi-collapseBench">Edit Goal</button>
+              {%endif%}
+            </div>
+          </div>
+        </div>
+        <div class="col-4 mb-3">
+          <div class="col-6">
+          <div class="vstack gap-3 mt-3">
+              <h4 class="text-center">Deadlift</h4>
+              <div class="collapse multi-collapseDead" id="deadAddGoal">
+                <form action="/uploadGoal" method="POST">
+                  <div class="form-group row mx-0">
+                    <input type="text" class="form-control mt-0" id="goal" name="setGoal"  placeholder="Goal..">
+                    <input type="hidden" class="form-control mt-0" id="goal" name="goalType"  value="dead">
+                    <button type="submit" class="btn btn-dark btn-sm my-3">Add</button>
+                  </div>
+                </form>
+              </div>
+              {%if goalData[2][0] !='Dead' %}
+              <button class="btn btn-dark btn-sm mx-3" data-bs-toggle="collapse" data-bs-target="#deadAddGoal" style="width: 75%;">+ Goal</button>
+              {%endif%}
+              {% if goalData[2][0] == 'Dead' %}
+              <div class="collapse show multi-collapseDead">
+                <h5 class="text-center mt-3">{{goalData[2][1]}} lbs</h5>
+              </div>
+              <button class="btn btn-dark btn-sm mt-3 mx-3"style="width: 75%;" data-bs-toggle="collapse" data-bs-target=".multi-collapseDead">Edit Goal</button>
+              {%endif%}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mx-0 mt-3 d-flex justify-content-end">
+        <div class="col-4 d-flex justify-content-end">
+          <div class="col-6 d-flex justify-content-end">
+          <div class="vstack gap-3 mt-3">
+              {%if goalData[3][0] != ''%}
+              <div class="collapse show multi-collapseGoal1">
+                <h4 class="text-center">{{goalData[3][0]}}</h4>
+              </div>
+              {%endif%}
+              <div class="collapse multi-collapseGoal1" id="goal1Add">
+                <form action="/uploadGoal" method="POST">
+                  <div class="form-group row mx-0">
+                    <input type="text" class="form-control mt-0" id="goal" name="exercise"  placeholder="Exercise Name..">
+                    <input type="text" class="form-control mt-2" id="goal" name="setGoal"  placeholder="Goal..">
+                    <input type="hidden" class="form-control mt-0" id="goal" name="goalType"  value="goal1">
+                    <button type="submit" class="btn btn-dark btn-sm my-3">Add</button>
+                  </div>
+                </form>
+              </div>
+              {%if goalData[3][0] == '' %}
+              <button class="btn btn-dark btn-sm mx-3" data-bs-toggle="collapse" data-bs-target="#goal1Add" style="width: 75%;">+ Goal</button>
+              {%endif%}
+              {% if goalData[3][0] != '' %}
+              <div class="collapse show multi-collapseGoal1">
+                <h5 class="text-center mt-3">{{goalData[3][1]}} lbs</h5>
+              </div>
+              <button class="btn btn-dark btn-sm mt-3 mx-3"style="width: 75%;" data-bs-toggle="collapse" data-bs-target=".multi-collapseGoal1">Edit Goal</button>
+              {%endif%}
+            </div>
+          </div>
+        </div>
+        <div class="col-4 d-flex justify-content-center">
+          <div class="col-6 d-flex justify-content-center">
+          <div class="vstack gap-3 mt-3">
+              {%if goalData[4][0] != ''%}
+              <div class="collapse show multi-collapseGoal2">
+                <h4 class="text-center">{{goalData[4][0]}}</h4>
+              </div>
+              {%endif%}
+              <div class="collapse multi-collapseGoal2" id="goal2Add">
+                <form action="/uploadGoal" method="POST">
+                  <div class="form-group row mx-0">
+                    <input type="text" class="form-control mt-0" id="goal" name="exercise"  placeholder="Exercise Name..">
+                    <input type="text" class="form-control mt-2" id="goal" name="setGoal"  placeholder="Goal..">
+                    <input type="hidden" class="form-control mt-0" id="goal2" name="goalType"  value="goal2">
+                    <button type="submit" class="btn btn-dark btn-sm my-3">Add</button>
+                  </div>
+                </form>
+              </div>
+              {%if goalData[4][0] == '' %}
+              <button class="btn btn-dark btn-sm mx-3" data-bs-toggle="collapse" data-bs-target="#goal2Add" style="width: 75%;">+ Goal</button>
+              {%endif%}
+              {% if goalData[4][0] != '' %}
+              <div class="collapse show multi-collapseGoal2">
+                <h5 class="text-center mt-3">{{goalData[4][1]}} lbs</h5>
+              </div>              
+              <button class="btn btn-dark btn-sm mt-3 mx-3"style="width: 75%;" data-bs-toggle="collapse" data-bs-target=".multi-collapseGoal2">Edit Goal</button>
+              {%endif%}
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="col-6">
+          <div class="vstack gap-3 mt-3">
+              {%if goalData[5][0] != ''%}
+              <div class="collapse show multi-collapseGoal3">
+                <h4 class="text-center">{{goalData[5][0]}}</h4>
+              </div>
+              {%endif%}
+              <div class="collapse multi-collapseGoal3" id="goal3Add">
+                <form action="/uploadGoal" method="POST">
+                  <div class="form-group row mx-0">
+                    <input type="text" class="form-control mt-0" id="goal" name="exercise"  placeholder="Exercise Name..">
+                    <input type="text" class="form-control mt-2" id="goal" name="setGoal"  placeholder="Goal..">
+                    <input type="hidden" class="form-control mt-0" id="goal" name="goalType"  value="goal3">
+                    <button type="submit" class="btn btn-dark btn-sm my-3">Add</button>
+                  </div>
+                </form>
+              </div>
+              {%if goalData[5][0] == '' %}
+              <button class="btn btn-dark btn-sm mx-3" data-bs-toggle="collapse" data-bs-target="#goal3Add" style="width: 75%;">+ Goal</button>
+              {%endif%}
+              {% if goalData[5][0] != '' %}
+              <div class="collapse show multi-collapseGoal3">
+                <h5 class="text-center mt-3">{{goalData[5][1]}} lbs</h5>
+              </div>
+              <button class="btn btn-dark btn-sm mt-3 mx-3"style="width: 75%;" data-bs-toggle="collapse" data-bs-target=".multi-collapseGoal3">Edit Goal</button>
+              {%endif%}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mx-0 my-3 d-flex justify-content-center invisible">
+        <div class="col-8" style="background-color: purple;">
+          Goal History
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

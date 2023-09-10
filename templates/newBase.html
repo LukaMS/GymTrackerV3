@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gymtracker V3</title>
+  <link rel="icon" type="image/x-icon" href="../static/favicon/faviconLogo.png">
+  <link rel="stylesheet" href="../static/css/bootstrap.css">
+  <script src="../static/js/app.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg"  style="background-color: #d59eff;">
+    <div class="container px-5">
+      <img src="../static/Luka.png" width="50" >
+      <a class="navbar-brand mx-4" href="{{url_for('main.index')}}">Gymtracker V3</a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse mx-5" id="navbarSupportedContent">
+        {% if not current_user.is_authenticated %}
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav-underline">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{{url_for('main.index')}}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% block nav_login %}{% endblock %}" href="{{url_for('auth.login')}}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% block nav_signup %}{% endblock %}" href="{{url_for('auth.signup')}}">Signup</a>
+          </li>
+        </ul>
+        {%endif%}
+        {%if current_user.is_authenticated%}
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav-underline">
+          <li class="nav-item">
+            <a class="nav-link {% block nav_home %}{% endblock %}" aria-current="page" href="{{url_for('main.index')}}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% block nav_profile %}{% endblock %}" href="{{url_for('profiles.profile')}}">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('auth.logout')}}">Logout</a>
+          </li>
+        </ul>
+        {%endif%}
+      </div>
+    </div>
+  </nav>
+  {% block content %}{% endblock %}
+  <script src="../static/js/bootstrap.bundle.js"></script>
+</body>
+</html>

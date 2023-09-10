@@ -1,0 +1,10 @@
+runtime: python38
+
+instance_class: F4_1G
+
+beta_settings:
+    cloud_sql_instances: silent-service-390716:northamerica-northeast2:gymtracker
+
+handlers:
+- url: /.*
+  script: main.py

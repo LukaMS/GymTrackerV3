@@ -1,0 +1,706 @@
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Century Gothic";
+  padding-bottom: 30px;
+}
+/* Main header */
+#mainHeader {
+  color: rgb(131, 64, 238);
+  background: #83828a;
+  font-family: "Century Gothic";
+  max-width: 100%;
+  text-align: left;
+  height: 50px;
+}
+#mainHeader h1 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 40px;
+  margin-left: 276px;
+  padding-top:10px;
+  padding-bottom: 10px;
+  display: inline;
+}
+#mainHeader h1 a {
+  text-decoration: none;
+  color: rgb(131, 64, 238);
+}
+#name {
+  width: calc(max-content+10px);
+}
+#mainHeader ul li img {
+  display: inline;
+  margin:0;
+  padding: 5px;
+  height: 40px;
+  width: 40px;
+}
+
+#mainHeader ul {
+  float:right;
+  display:inline;
+  list-style-type: none;
+  margin-top: 0;
+  margin-right: 279px;
+  padding: 0;
+  overflow: hidden;
+}
+#mainHeader ul li {
+  float:right;
+  padding-left: 20px;
+}
+
+#mainHeader ul li a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  padding-top:15px;
+  height: 35px;
+  width: 75px;
+}
+
+#mainHeader ul li a.active {
+  background-color: rgb(197, 189, 209);
+}
+
+#mainHeader ul li a:hover {
+  background-color: rgb(150, 111, 212);
+}
+
+#welcomeStatement {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+}
+
+#welcomeStatement p {
+  text-align: center;
+  width: 400px;
+  margin-left: 35%;
+}
+
+/* Login Form */
+
+#loginDiv {
+  margin:0;
+  margin-top: 125px;
+  padding: 0;
+  max-width: 100%;
+}
+
+#loginDiv form{
+  margin-left: 40%;
+}
+
+#loginDiv input[type=text]{
+  padding-right: 7px;
+  padding-left: 7px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  width:200px;
+  border-radius: 5px;
+}
+
+#loginDiv p {
+  font-size: 18px;
+}
+
+#loginDiv input[type=password]{
+  padding-right: 7px;
+  padding-left: 7px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  width:200px;
+  border-radius: 5px;
+}
+
+#loginDiv input[type=submit]{
+  margin-top: 40px;
+  text-align: center;
+  width: 217px;
+  height:35px;
+  font-size: 16px;
+  background-color: #B982FF;
+  border-color: rgb(197, 191, 191);
+  border-radius: 5px;
+}
+
+#loginDiv input[type=submit]:hover {
+  background-color: #B982FF;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/* Signup Form */
+
+#signupDiv {
+  margin:0;
+  margin-top: 125px;
+  padding: 0;
+  max-width: 100%;
+}
+
+#signupDiv form{
+  margin-left: 40%;
+}
+
+#signupDiv p {
+  font-size: 18px;
+}
+
+#signupDiv input[type=text]{
+  padding-right: 7px;
+  padding-left: 7px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  width:200px;
+  border-radius: 5px;
+}
+
+#signupDiv input[type=password]{
+  padding-right: 7px;
+  padding-left: 7px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  width:200px;
+  border-radius: 5px;
+}
+
+#signupDiv input[type=submit]{
+  margin-top: 40px;
+  text-align: center;
+  width: 217px;
+  height:35px;
+  font-size: 16px;
+  background-color: #B982FF;
+  border-color: rgb(197, 191, 191);
+  border-radius: 5px;
+}
+
+#signupDiv input[type=submit]:hover {
+  background-color: #B982FF;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/* Dashboard */
+
+#dashboard {
+  margin-top: 50px;
+  background-color: #bbbbbb;
+  margin-left: 20%;
+  margin-right: 20%;
+  height: auto;
+  width: 1000px;
+  border-radius: 5px;
+}
+
+#dashboard.extend{
+}
+
+#dashboardHeader {
+  color: rgb(131, 64, 238);
+  background: #83828a;
+  max-width: 100%;
+  text-align: left;
+  height: 50px;
+  background-color: #7e7e7e;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#dashboardHeader ul {
+  height: 50px;
+  width: 500px;
+  float: left;
+  display:inline;
+  list-style-type: none;
+  margin-top: 0;
+  margin-left: 250px;
+  padding: 0;
+  overflow: hidden;
+  
+}
+#dashboardHeader ul li {
+  float:left;
+  margin-left: 20px;
+}
+
+#dashboardHeader ul li.active {
+  background-color: rgb(150, 111, 212);
+}
+
+#dashboardHeader ul li a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  text-align: center;
+  padding-top:15px;
+  padding-bottom:0px;
+  height: 35px;
+  width: 75px;
+}
+
+#dashboardHeader ul li a:hover {
+  background-color: rgb(150, 111, 212);
+}
+
+#dashcontent {
+  width: 800px;
+  margin-left: 100px;
+  height: auto;
+  padding-bottom: 25px;
+}
+#dashcontent.extend{
+  height: auto;
+}
+
+#dashcontent img{
+  margin-left: 50px;
+  margin-top: 25px;
+  display: inline-block;
+  padding: 0;
+  height: 144px;
+  border: 3px solid #e4dfdf;
+  border-radius: 2px;
+}
+.nonactiveProfile {
+  display: none;
+}
+#profiletext {
+  margin-left: 150px;
+  margin-top: 25px;
+  height: 150px;
+  display: inline-block;
+  font-size: 20px;
+}
+#profileButton button{
+  margin-left: 60px;
+  margin-top: 20px;
+  text-align: center;
+  width: 150px;
+  height:35px;
+  font-size: 16px;
+  background-color: #B982FF;
+  border-color: rgb(197, 191, 191);
+  border-radius: 5px;
+  padding: 0;
+}
+#profileButton button:hover{
+  background-color: #B982FF;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#profileButton {
+  display: inline-grid;
+  position: absolute;
+  margin-top: 100px;
+}
+
+#profileButton form {
+  display: inline-block;
+  margin-left: 60px;
+  margin-top: 0;
+  padding: 0;
+}
+
+#changePF {
+  text-align: center;
+  width: 150px;
+  height:35px;
+  font-size: 16px;
+  background-color: #B982FF;
+  border-color: rgb(197, 191, 191);
+  border-radius: 5px;
+  padding: 0;
+}
+
+#changePF:hover{
+  background-color: #B982FF;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#profileStats {
+  margin-top: 100px;
+  margin-left: 50px;
+  max-width:900px;
+}
+
+#profileStats p{
+  display: inline-block;
+  font-size: 20px;
+  padding-right: 75px;
+}
+
+
+#setupProfile input[type=suibmit]{
+  margin-left: 50px;
+  margin-bottom: 100px;
+}
+
+#graph {
+  width: 640.8px;
+  height: 300px;
+  margin-left: 20px;
+}
+
+#workoutgraph {
+  height: 200px;
+  width: 600px;
+  margin-left: 100px;
+  margin-top: 30px;
+  background-color: #B982FF;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+#workoutSelect {
+  margin-top: 15px;
+  height: 200px;
+  width: 300px;
+  margin-left: 300px;
+}
+
+#workoutSelect label {
+  display: block;
+  margin-left: 0;
+  padding-bottom: 10px;
+}
+
+#workoutSelect select {
+  display: block;
+  margin-left: 0;
+  width: 200px
+}
+
+#workoutSelect input {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  width: 200px;
+  height:35px;
+  font-size: 16px;
+  background-color: #B982FF;
+  border-color: rgb(197, 191, 191);
+  border-radius: 5px;
+}
+#workoutSelect input:hover{
+  background-color: #B982FF;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#statsgraphsArea {
+  height: 300px;
+  width: 800px;
+  margin-left: 0;
+  margin-top: 30px;
+  background-color: #B982FF;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+#squatGraph {
+  height:200px;
+  width:225px;
+  background-color: aqua;
+  display: inline-block;
+  margin-left: 25px;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+#benchGraph {
+  height:200px;
+  width:225px;
+  background-color: aqua;
+  display: inline-block;
+  margin-left: 25px;
+  margin-top: 50px;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+#deadliftGraph {
+  height:200px;
+  width:225px;
+  background-color: aqua;
+  display: inline-block;
+  margin-left: 25px;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+#stats {
+  margin-top: 0;
+  margin-left: 50px;
+  max-width:900px;
+}
+
+
+#stats p.squat{
+  display: inline-block;
+  font-size: 20px;
+  padding-right: 125px;
+}
+#stats p.bench{
+  display: inline-block;
+  font-size: 20px;
+  padding-right: 100px;
+}
+#stats p.dead{
+  display: inline-block;
+  font-size: 20px;
+}
+
+#strongForm {
+  margin-top: 100px;
+  margin-left: 200px;
+}
+
+#genGraphArea {
+  width: 800px;
+  height: 300px;
+  margin-top: 30px;
+  background-color: #B982FF;
+  border-radius: 5px;
+  border-color: #000000;
+  border-width: 2px;
+  border-style: solid;
+}
+#genGraphButton {
+  margin-top: 30px;
+  margin-left: 325px;
+  text-align: center;
+  width: 150px;
+  height:35px;
+  font-size: 16px;
+  background-color: #000000;
+  color: rgb(189, 189, 189);
+  border-color: rgb(197, 191, 191);
+  border-radius: 5px;
+  padding: 0;
+}
+
+#genGraphButton:hover{
+  background-color: #161616;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);  
+}
+
+#exerciseChoice {
+  display: inline-block;
+  margin-top: 50px;
+  margin-left: 75px;
+}
+#exerciseChoice label{
+  display:block;
+}
+#graphChoice {
+  display: inline-block;
+  margin-left: 50px;
+}
+#graphChoice label{
+  display: block;
+}
+#dateRange {
+  display: inline-block;
+  margin-left: 50px;
+}
+#dateRange label{
+  display: block;
+}
+
+#graphingGraph {
+  height: 300px;
+  background-color: #B982FF;
+  width: 800px;
+  margin-top: 50px;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 2px;
+}
+#genNewGraphButt{
+  margin-top: 30px;
+  margin-left: 310px;
+  text-align: center;
+  width: 200px;
+  height:35px;
+  font-size: 16px;
+  background-color: #000000;
+  color: rgb(189, 189, 189);
+  border-color: rgb(197, 191, 191);
+  border-radius: 5px;
+  padding: 0;
+}
+
+#genNewGraphButt:hover{
+  background-color: #161616;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);  
+}
+
+#workoutArea {
+  height: auto;
+  background-color: #B982FF;
+  width: 800px;
+  margin-top: 30px;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 2px;
+}
+
+.workoutData {
+  height: auto;
+  width: 300px;
+  padding-top: 0px;
+  margin-top: 20px;
+  margin-left: 75px;
+  display: inline-grid;
+}
+
+.workoutData h4{
+  display: inline-block;
+  margin-top: 0px;
+  width: 50px;
+  padding-right: 20px;
+}
+
+.workoutDataNums {
+  padding-bottom: 20px;
+}
+
+.workoutDataNums p {
+  display: inline-block;
+  width: 50px;
+  margin: 0;
+  padding-right: 20px;
+}
+
+#workoutText {
+  margin-top: 30px;
+  padding-bottom: 20px;
+}
+
+#workoutText p{
+  margin-left: 100px;
+  width: 200px;
+  display: inline-block;
+  padding-right: 50px;
+}
+
+#goalArea {
+  margin-top: 25px;
+  min-height: 400px;
+  height: auto;
+  width: 800px;
+  background-color: #ba85ff;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 2px;
+}
+.activeGoal{
+  display: inline-grid;
+  min-height: 130px;
+  height:auto;
+  width: 200px;
+  margin-left: 50px;
+  margin-top: 50px;
+  background-color: #bbbbbb;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 2px;
+  margin-bottom: 10px;
+}
+
+.activeGoal h2, h3, h4{
+  width: 200px;
+  text-align: center;
+  padding: 0;
+  margin-top: 10px;
+}
+
+#editGoal{
+  display: block;
+  margin-top: 0;
+  margin-bottom: 10px;
+  margin-left: 70px;
+  text-align: center;
+  width: 60px;
+  height:25px;
+  font-size: 16px;
+  background-color: #B982FF;
+  border-color: rgb(197, 191, 191);
+  border-radius: 5px;
+}
+
+#plusButt {
+  display: block;
+  margin-top: 10px;
+  margin-left: 50px;
+  text-align: center;
+  width: 100px;
+  height:35px;
+  font-size: 16px;
+  background-color: #B982FF;
+  border-color: rgb(197, 191, 191);
+  border-radius: 5px;
+}
+#plusButt:hover{
+  background-color: #B982FF;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.nonactiveGoal {
+  display: none;
+}
+
+#goalHistory {
+  margin-top: 25px;
+  width: 800px;
+  height: 200px;
+  background-color: #B982FF;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 2px;
+}
+#extraGoal{
+  
+}
+#extraGoal p{
+}
+#extraGoal input {
+  width: 150px !important;
+  height: 20px;
+}
+#goalForm {
+}
+#goalForm p {
+  margin-left: 15px;
+  display: inline-block;
+}
+#goalForm input[type=text]{
+  width:60px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+#goalForm input {
+  display: inline-block;
+}
+
+#goalForm input[type=submit] {
+  width: 40px;
+  text-align: center;
+  background-color: #B982FF;
+  border-color: rgb(197, 191, 191);
+  border-radius: 5px;
+}
+#goalForm input[type=submit]:hover{
+  background-color: #B982FF;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
